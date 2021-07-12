@@ -25,6 +25,18 @@ defmodule Barlix.PNGTest do
     @tag :skip
   end
 
+  test "print GS1" do
+    assert_png(
+      'png/gs1_FNC1-00301234560000000057.png',
+      Barlix.GS1.encode!([:fnc_1 | String.to_charlist("00301234560000000057")])
+    )
+
+    code =
+      [:fnc_1] ++ String.to_charlist("4210363045") ++ [:fnc_1] ++ String.to_charlist("403900")
+
+    assert_png('png/gs1_FNC1-4210363045-FNC1-403900.png', Barlix.GS1.encode!(code))
+  end
+
   test "print" do
     assert_png('png/code39_barlix.png', Barlix.Code39.encode!("BARLIX"))
 
