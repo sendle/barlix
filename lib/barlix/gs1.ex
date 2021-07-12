@@ -78,6 +78,9 @@ defmodule Barlix.GS1 do
   defp index(:start_code_c), do: 105
   defp index(:fnc_1), do: 102
 
+  # More about how the code set is defined can be found here:
+  # https://en.wikipedia.org/wiki/Code_128#Bar_code_widths
+
   defp quiet, do: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   defp stop, do: [1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1]
 
