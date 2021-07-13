@@ -27,7 +27,7 @@ defmodule Barlix.GS1 do
   Accepts the same arguments as `encode/1`. Returns `t:Barlix.code/0` or
   raises `Barlix.Error` in case of invalid value.
   """
-  @spec encode!(String.t() | [char() | :fnc_1]) :: Barlix.code() | no_return
+  @spec encode!(String.t() | [member]) :: Barlix.code() | no_return when member: char() | :fnc_1
   def encode!(value) do
     case encode(value) do
       {:ok, code} -> code
