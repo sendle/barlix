@@ -14,7 +14,8 @@ defmodule Barlix.GS1 do
 
       Barlix.GS1.encode([:fnc_1, ?1, ?2, ?3, ?4, :fnc_1, ?5, ?6])
   """
-  @spec encode(String.t() | [char() | :fnc_1]) :: {:error, binary} | {:ok, Barlix.code()}
+  @spec encode(String.t() | [member]) :: {:error, binary} | {:ok, Barlix.code()}
+        when member: char() | :fnc_1
   def encode(value) do
     value = Barlix.Utils.normalize_string(value)
 
